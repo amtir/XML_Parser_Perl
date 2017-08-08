@@ -1,0 +1,120 @@
+
+
+http://api.openweathermap.org/data/2.5/weather?q=London&mode=xml&appid=74a07f6fbe1ee33a9b6e8a4695efb634
+
+
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<current>
+<city id="2643743" name="London">
+<coord lon="-0.13" lat="51.51"/>
+<country>GB</country>
+<sun rise="2017-07-16T04:03:22" set="2017-07-16T20:09:14"/>
+</city>
+<temperature value="292.87" min="291.15" max="294.15" unit="kelvin"/>
+<humidity value="83" unit="%"/>
+<pressure value="1023" unit="hPa"/>
+<wind>
+<speed value="3.6" name="Gentle Breeze"/>
+<gusts/>
+<direction value="360" code="" name=""/>
+</wind>
+<clouds value="75" name="broken clouds"/>
+<visibility value="10000"/>
+<precipitation mode="no"/>
+<weather number="803" value="broken clouds" icon="04n"/>
+<lastupdate value="2017-07-16T21:20:00"/>
+</current>
+
+
+
+
+
+
+
+[root@squid perl]# 
+[root@squid perl]# 
+[root@squid perl]# perl main.pl -c  Paris
+ Requesting the current weather data for the city of  Paris ... 
+
+=======================================
+<?xml version="1.0"?>
+<current><city id="2988507" name="Paris"><coord lon="2.35" lat="48.85"></coord><country>FR</country><sun rise="2017-07-16T04:05:22" set="2017-07-16T19:47:30"></sun></city><temperature value="294.95" min="294.15" max="296.15" unit="kelvin"></temperature><humidity value="64" unit="%"></humidity><pressure value="1023" unit="hPa"></pressure><wind><speed value="5.1" name="Gentle Breeze"></speed><gusts></gusts><direction value="20" code="NNE" name="North-northeast"></direction></wind><clouds value="0" name="clear sky"></clouds><visibility value="10000"></visibility><precipitation mode="no"></precipitation><weather number="800" value="clear sky" icon="01n"></weather><lastupdate value="2017-07-16T21:30:00"></lastupdate></current>
+=======================================
+$VAR1 = {
+          'visibility' => {
+                          'value' => '10000'
+                        },
+          'pressure' => {
+                        'unit' => 'hPa',
+                        'value' => '1023'
+                      },
+          'precipitation' => {
+                             'mode' => 'no'
+                           },
+          'lastupdate' => {
+                          'value' => '2017-07-16T21:30:00'
+                        },
+          'wind' => {
+                    'direction' => {
+                                   'value' => '20',
+                                   'name' => 'North-northeast',
+                                   'code' => 'NNE'
+                                 },
+                    'gusts' => {},
+                    'speed' => {
+                               'value' => '5.1',
+                               'name' => 'Gentle Breeze'
+                             }
+                  },
+          'city' => {
+                    'country' => 'FR',
+                    'sun' => {
+                             'rise' => '2017-07-16T04:05:22',
+                             'set' => '2017-07-16T19:47:30'
+                           },
+                    'coord' => {
+                               'lat' => '48.85',
+                               'lon' => '2.35'
+                             },
+                    'name' => 'Paris',
+                    'id' => '2988507'
+                  },
+          'weather' => {
+                       'icon' => '01n',
+                       'number' => '800',
+                       'value' => 'clear sky'
+                     },
+          'clouds' => {
+                      'value' => '0',
+                      'name' => 'clear sky'
+                    },
+          'temperature' => {
+                           'unit' => 'kelvin',
+                           'min' => '294.15',
+                           'value' => '294.95',
+                           'max' => '296.15'
+                         },
+          'humidity' => {
+                        'unit' => '%',
+                        'value' => '64'
+                      }
+        };
+
+=======================================
+
+city, country: Paris, FR
+city-coord: (lat: 48.85, lon: 2.35)
+sun rise: 2017-07-16T04:05:22
+sun set: 2017-07-16T19:47:30
+temperature: 294.95 kelvin, (min: 294.15, max: 296.15)
+pressure: 1023 hPa
+humidity: 64 %
+wind direction: 20 NNE North-northeast
+wind speed: 5.1 (Gentle Breeze)
+precipitation: no
+weather: clear sky
+lastupdate: 2017-07-16T21:30:00
+
+=======================================
+[root@squid perl]# 
+
